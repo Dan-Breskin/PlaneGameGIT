@@ -9,6 +9,7 @@ pygame.init()
 mixer.init()
 
 screen = pygame.display.set_mode((1000, 700))
+pygame.display.set_caption('Plane Game')
 planes = pygame.sprite.Group()
 clock = pygame.time.Clock()
 buildings = pygame.sprite.Group()
@@ -24,10 +25,10 @@ volume = 1
 buttons = pygame.sprite.Group()
 
 try:
-    with open('best_score.pkl', 'rb') as f:
+    with open('Images_Sounds/best_score.pkl', 'rb') as f:
         best_score = pickle.load(f)
 except FileNotFoundError:
-    with open('best_score.pkl', 'wb') as f:
+    with open('Images_Sounds/best_score.pkl', 'wb') as f:
         pickle.dump(0, f)
         best_score = 0
 
@@ -420,7 +421,7 @@ while game:
         pygame.display.flip()
         clock.tick(50)
 
-with open('best_score.pkl', 'wb') as f:
+with open('Images_Sounds/best_score.pkl', 'wb') as f:
     pickle.dump(best_score, f)
 
 pygame.quit()
